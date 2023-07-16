@@ -24,12 +24,13 @@
   display: block;
 }
 
-#fichas {
+.fichas {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: 2rem 0;
   background-color: #93ace0;
   box-shadow: 0px 0px 20px #9db6ec;
 }
@@ -38,7 +39,23 @@
   margin: 1rem;
   padding: 1.5rem;
   min-width: 300px;
+  background-color: #e4e6f0;
   border-color: #24262c;
   border-radius: 2rem;
   border-style: solid;
+}
+
+.expandir {
+  margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  border-color: #24262c;
+  border-radius: .2rem;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.guardar {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
 }

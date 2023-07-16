@@ -33,7 +33,7 @@ function crearFichas() {
     datos.forEach(dato => {
       fichas.innerHTML += `<div class="ficha">
       <h3>Nombre: ${dato.nombre}</h3>
-      <h3>Cedula: CI${dato.cedula}</h3>
+      <h3>Cédula: CI${dato.cedula}</h3>
       <h3>Departamento: ${dato.departamento}</h3>
     </div>`;
     });
