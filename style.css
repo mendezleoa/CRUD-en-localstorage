@@ -15,3 +15,15 @@
 .logo img {
   width: 80px;
 }
+
+.formulario {
+  display: hidden;
+}
+
+.formulario.activo {
+  display: block;
+}
+
+.btn_agregar {
+
+}
