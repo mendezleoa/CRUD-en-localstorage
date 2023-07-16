@@ -17,20 +17,23 @@
     </nav>
   </header>
   <main>
-    <h1>App de recursos humanos</h1>
+    <h1 class="titulo">App de recursos humanos</h1>
     <div id="fichas" class="fichas">
     </div>
-    <i id="agregar" class="fa-solid fa-plus expandir"></i>
+    <i id="agrandar" class="fa-solid fa-plus acciones"></i><i id="borrar" class="fa-solid fa-trash acciones"></i>
     <div id="formulario" class="formulario">
       <h1>Datos para agregar</h1>
       <form id="form">
-        <label><input type="text" name="nombre" id="nombre"></label>
-        <label><input type="number" name="cedula" id="cedula"></label>
-        <label><input type="text" name="departamento" id="departamento"></label>
+        <label>Nombre: <input type="text" name="nombre" id="nombre"></label><br>
+        <label>Cédula: <input type="number" name="cedula" id="cedula"></label><br>
+        <label>Departamento: <input type="text" name="departamento" id="departamento"></label><br>
         <input class="guardar" type="submit" value="&#xf0c7; Guardar">
       </form>
     </div>
   </main>
+  <footer>
+    <i>App RH | &copy; todos los derechos reservados</i>
+  </footer>
   <script src="main.js"></script>
   <script src="https://kit.fontawesome.com/9f6d64beab.js" crossorigin="anonymous"></script>
 </body>

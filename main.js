@@ -1,10 +1,21 @@
 const fichas = document.getElementById("fichas");
 const form = document.querySelector("#form");
+const agrandar = document.getElementById("agrandar")
 
-document.getElementById("agregar").addEventListener('click', () => {
+agrandar.addEventListener('click', () => {
   document.getElementById("formulario").classList.toggle("activo");
+  if (agrandar.classList.value === "fa-solid fa-plus acciones") {
+    agrandar.classList.replace("fa-plus", "fa-minus");
+  } else if (agrandar.classList.value === "fa-solid fa-minus acciones") {
+    agrandar.classList.replace("fa-minus", "fa-plus");
+  }
 })
 
+document.getElementById("borrar").addEventListener('click', () => {
+  arraydatos = [];
+  localStorage.setItem('datos', JSON.stringify(arraydatos));
+  mostrarFichas()
+})
 
 const CrearItem = (nombre, cedula, departamento) => {
   if ((nombre.length > 18 || nombre.length < 4) || (cedula.length > 9 || cedula.length < 5) || (departamento.length > 32 || departamento.length < 4)) {
@@ -24,16 +35,16 @@ const CrearItem = (nombre, cedula, departamento) => {
   }
 }
 
-function crearFichas() {
+function mostrarFichas() {
   let datos = JSON.parse(localStorage.getItem('datos'));
-  if (!datos) {
+  if (!datos.length) {
     fichas.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
   } else {
     fichas.innerHTML = ``;
     datos.forEach(dato => {
       fichas.innerHTML += `<div class="ficha">
       <h3>Nombre: ${dato.nombre}</h3>
-      <h3>Cédula: CI${dato.cedula}</h3>
+      <h3>Cédula: CI ${dato.cedula}</h3>
       <h3>Departamento: ${dato.departamento}</h3>
     </div>`;
     });
@@ -47,7 +58,8 @@ form.addEventListener('submit', (e) => {
   let departamento = document.getElementById("departamento").value;
 
   CrearItem(nombre, cedula, departamento);
-  crearFichas()
+  form.reset();
+  mostrarFichas()
 })
 
-document.addEventListener('DOMContentLoaded', crearFichas())
+document.addEventListener('DOMContentLoaded', mostrarFichas())
