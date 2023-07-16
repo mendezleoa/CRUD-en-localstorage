@@ -17,13 +17,28 @@
 }
 
 .formulario {
-  display: hidden;
+  display: none;
 }
 
 .formulario.activo {
   display: block;
 }
 
-.btn_agregar {
+#fichas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #93ace0;
+  box-shadow: 0px 0px 20px #9db6ec;
+}
 
+.ficha {
+  margin: 1rem;
+  padding: 1.5rem;
+  min-width: 300px;
+  border-color: #24262c;
+  border-radius: 2rem;
+  border-style: solid;
 }

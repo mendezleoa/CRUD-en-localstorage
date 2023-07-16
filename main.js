@@ -5,12 +5,15 @@ document.getElementById("agregar").addEventListener('click', () => {
   document.getElementById("formulario").classList.toggle("activo");
 })
 
-let arraydatos = [];
 
 const CrearItem = (nombre, cedula, departamento) => {
   if ((nombre.length > 18 || nombre.length < 4) || (cedula.length > 9 || cedula.length < 5) || (departamento.length > 32 || departamento.length < 4)) {
     alert("Información invalida.")
   } else {
+    let arraydatos = JSON.parse(localStorage.getItem('datos'));
+    if (arraydatos === null) {
+      arraydatos = [];
+    }
     let item = {
       nombre: nombre,
       cedula: cedula,
@@ -21,21 +24,17 @@ const CrearItem = (nombre, cedula, departamento) => {
   }
 }
 
-// crearFichas();
-
 function crearFichas() {
-  let datos = localStorage.getItem('datos');
+  let datos = JSON.parse(localStorage.getItem('datos'));
   if (!datos) {
-    fichas.innerHTML = `<div class="mensaje">
-      <h3>No hay datos</h3>
-    </div>`
+    fichas.innerHTML = `<h3 class="mensaje">No hay datos</h3>`
   } else {
-    fichas.innerHTML = `<div>
-      <h3>Si hay datos</h3>
-    </div>`;
+    fichas.innerHTML = ``;
     datos.forEach(dato => {
-      fichas.innerHTML += `<div>
-      <h3>${dato}</h3>
+      fichas.innerHTML += `<div class="ficha">
+      <h3>Nombre: ${dato.nombre}</h3>
+      <h3>Cedula: CI${dato.cedula}</h3>
+      <h3>Departamento: ${dato.departamento}</h3>
     </div>`;
     });
   }
@@ -48,4 +47,7 @@ form.addEventListener('submit', (e) => {
   let departamento = document.getElementById("departamento").value;
 
   CrearItem(nombre, cedula, departamento);
+  crearFichas()
 })
+
+document.addEventListener('DOMContentLoaded', crearFichas())
